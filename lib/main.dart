@@ -1,5 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'dart:math';
+
+void main(List<String> args) {
+  runApp(MaterialApp(home: bar(),));
+}
 
 class bar extends StatefulWidget {
   const bar({super.key});
@@ -11,9 +17,20 @@ class bar extends StatefulWidget {
 class _barState extends State<bar> {
   TextEditingController? mController = TextEditingController();
 
-  double? m;
+  int m = 0;
 
-  double? javob = 0;
+ int javob = 1;
+
+  void calc() {
+    m = int.parse(mController!.text);
+
+    for (int i = 1; i <= m; i++) {
+      setState(() {
+        javob = javob * i;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,16 +75,10 @@ class _barState extends State<bar> {
           Center(
             child: ElevatedButton(
                 onPressed: () {
-                  setState(() {
-                    m = double.parse(mController!.text);
-                    javob = int as double?;
-                    for (int i = 1; i <= mController; i++) {
-                      ;
-                      mController = i as TextEditingController?;
-                    }
-                  });
-                },
-                child: const Text("Hisoblash")),
+                  javob=1;
+                  calc();
+                  
+                }, child: const Text("Hisoblash")),
           ),
           const SizedBox(
             height: 20,
@@ -76,10 +87,10 @@ class _barState extends State<bar> {
               child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              "Javob :$javob bar",
+              "Javob : $javob bar",
               style: TextStyle(fontSize: 30, color: Colors.green),
             ),
-          ))
+          ),),
         ]),
       ),
     );
