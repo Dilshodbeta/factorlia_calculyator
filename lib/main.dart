@@ -1,10 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 void main(List<String> args) {
-  runApp(MaterialApp(home: bar(),));
+  runApp(MaterialApp(
+    home: bar(),
+  ));
 }
 
 class bar extends StatefulWidget {
@@ -19,7 +18,7 @@ class _barState extends State<bar> {
 
   int m = 0;
 
- int javob = 1;
+  int javob = 1;
 
   void calc() {
     m = int.parse(mController!.text);
@@ -39,9 +38,11 @@ class _barState extends State<bar> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 70),
             child: Container(
-              child: const Text(
-                'Faktorial',
-                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
+              child: Center(
+                child: const Text(
+                  'Faktorial',
+                  style: TextStyle(color: Colors.greenAccent, fontSize: 20),
+                ),
               ),
             ),
           ),
@@ -69,28 +70,32 @@ class _barState extends State<bar> {
           ),
           Container(
             child: Image(
-              image: AssetImage('assets/images/manometr.gif'),
+              image: AssetImage('assets/images/large.gif'),
             ),
+          ),
+          SizedBox(
+            height: 35,
           ),
           Center(
             child: ElevatedButton(
                 onPressed: () {
-                  javob=1;
+                  javob = 1;
                   calc();
-                  
-                }, child: const Text("Hisoblash")),
+                },
+                child: const Text("Hisoblash")),
           ),
           const SizedBox(
             height: 20,
           ),
           Center(
-              child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              "Javob : $javob bar",
-              style: TextStyle(fontSize: 30, color: Colors.green),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "Javob : $javob ",
+                style: TextStyle(fontSize: 30, color: Colors.green),
+              ),
             ),
-          ),),
+          ),
         ]),
       ),
     );
