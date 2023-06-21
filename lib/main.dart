@@ -18,14 +18,14 @@ class _barState extends State<bar> {
 
   int m = 0;
 
-  int javob = 1;
+  BigInt javob = BigInt.from(1);
 
   void calc() {
     m = int.parse(mController!.text);
 
     for (int i = 1; i <= m; i++) {
       setState(() {
-        javob = javob * i;
+        javob = javob * BigInt.from(i);
       });
     }
   }
@@ -54,7 +54,7 @@ class _barState extends State<bar> {
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: const Color.fromARGB(255, 238, 235, 235)),
+                  color: Color.fromARGB(92, 212, 188, 188)),
               child: TextField(
                 controller: mController,
                 decoration: InputDecoration(
@@ -70,7 +70,7 @@ class _barState extends State<bar> {
           ),
           Container(
             child: Image(
-              image: AssetImage('assets/images/large.gif'),
+              image: AssetImage('assets/images/orig.gif'),
             ),
           ),
           SizedBox(
@@ -79,7 +79,7 @@ class _barState extends State<bar> {
           Center(
             child: ElevatedButton(
                 onPressed: () {
-                  javob = 1;
+                  javob = BigInt.from(1);
                   calc();
                 },
                 child: const Text("Hisoblash")),
@@ -97,7 +97,7 @@ class _barState extends State<bar> {
             ),
           ),
         ]),
-      ),
+      ),backgroundColor: Color.fromARGB(31, 7, 7, 7),
     );
   }
 }
